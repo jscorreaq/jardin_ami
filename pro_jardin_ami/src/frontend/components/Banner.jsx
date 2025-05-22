@@ -1,3 +1,4 @@
+import React from 'react'
 
 export default function Banner() {
   return (
@@ -6,5 +7,3 @@ export default function Banner() {
     </div>
   )
 }
-
-

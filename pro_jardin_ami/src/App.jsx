@@ -1,25 +1,26 @@
+import { Routes, Route } from 'react-router-dom'
 
-import Aside from "./admin/components/Aside"
-import Content from "./admin/components/Content"
+import HomePage from './frontend/pages/HomePage'
+import LoginPage from './frontend/pages/LoginPage'
+import RegisterPage from './frontend/pages/RegisterPage'
+import NotFound from './frontend/pages/NotFound'
+import DashboardPage from './admin/pages/DashboardPage'
 
 
 function App() {
   return (
-    <div id="page-top"> 
-      {/* <!-- Page Wrapper --> */}
-      <div id="wrapper">
-        
-        <Aside />
-        <Content />
-       
-      </div> 
-    </div>
-     
-
-
+    <>  
+    <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Register" element={<RegisterPage />} />
+        <Route path="*" element={<NotFound />} />
+    </Routes>    
+    <Routes>
+      <Route path="/Dashboard" element={<DashboardPage />} />  
+    </Routes> 
+    </>
   )
-      
-
 }
 
 export default App
