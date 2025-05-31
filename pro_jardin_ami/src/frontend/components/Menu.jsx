@@ -1,4 +1,5 @@
-import React from 'react';
+  import React from 'react';
+  import { Link } from 'react-router-dom';
 
 
 export default function Menu() {
@@ -16,10 +17,10 @@ export default function Menu() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto">
-                    <li className="nav-item"><a className="nav-link" href="#info">Información</a></li>
+                    <li className="nav-item"><Link className="nav-link" to="/">Información</Link></li>
                     <li className="nav-item"><a className="nav-link" href="#servicios">Servicios</a></li>
                     <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
-                    <li className="nav-item"><a className="nav-link" href="#login">Iniciar sesión</a></li>
+                    <li className="nav-item"><Link className="nav-link" to="/login">Iniciar sesión</Link></li>
                 </ul>
             </div>
         </div>
