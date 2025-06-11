@@ -1,16 +1,17 @@
-import Aside from "../components/Aside";
-import Content from "../components/Content";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contex/AuthContext';
+import { getDashboardRoutes } from '../../Components/common/getDashboardRoutes';
 
 export default function DashboardPage() {
-  return (
-     <div id="page-top"> 
-          {/* <!-- Page Wrapper --> */}
-          <div id="wrapper">
-            
-            <Aside />
-            <Content />
-           
-          </div> 
-        </div>
-  )
+  let {user} = useAuth();
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (user){
+      navigate(getDashboardRoutes(user.rol))
+    }
+  }, [user, navigate]);
+
+  return null;
 }

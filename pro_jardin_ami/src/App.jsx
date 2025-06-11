@@ -13,6 +13,9 @@ import PublicRoutes from './Components/auth/PublicRoutes'
 import PrivateRoutes from './Components/auth/PrivateRoutes'
 import RoleRoutes from './Components/auth/RoleRoutes'
 import AuthContext from './contex/AuthContext'
+import DasboardLayout from './admin/pages/DasboardLayout'
+import List from './admin/components/List'
+import Form from './admin/components/Form'
 
 function App() {
   return (
@@ -29,27 +32,21 @@ function App() {
         </Route>
         
         {/* Rutas Privadas */}
-         <Route element={<PrivateRoutes />}> {/*rutas para admin y seller  */}
-          <Route element ={<RoleRoutes allowedRoles={['admin', 'seller']}/>}>
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/dashboard/reports" element={<DashboardPage />} />
-          </Route>
+         <Route element={<PrivateRoutes />}> {/*rutas para admin, seller, costumer  */}
+          <Route element ={<RoleRoutes allowedRoles={['admin', 'seller', 'costumer']}/>}>
+            <Route path="/dashboard" element={<DasboardLayout />}>
+              <Route index element={<DashboardPage/>} />
+              <Route path='admin' element={<AdminPage />} />
+              <Route path='students' element={<List />} />
+              <Route path='students/create' element={<Form />} />
+              <Route path='admin' element={<AdminPage />} />
 
-          {/*rutas para admin */}
-          <Route element ={<RoleRoutes allowedRoles={['admin']}/>}>
-            <Route path="/dashboard/admin" element={<DashboardPage />} />
-          </Route>
 
-          {/*rutas para seller */}
-          <Route element ={<RoleRoutes allowedRoles={['admin']}/>}>
-            <Route path="/dashboard/seller" element={<SellerPage />} />
-          </Route>
+              <Route path='seller' element={<SellerPage />} />
+              <Route path='costumer' element={<CostumerPage />} />
 
-           {/*rutas para customer */}
-          <Route element ={<RoleRoutes allowedRoles={['admin']}/>}>
-            <Route path="/dashboard/costomer" element={<CostumerPage />} />
+            </Route>
           </Route>
-          
         </Route>
         
         {/* Ruta para error publica 404 */}

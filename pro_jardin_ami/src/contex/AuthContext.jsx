@@ -4,7 +4,7 @@ const AuthProvider = createContext()
 
 export default function AuthContext( {children} ) {
   let [user, setUser] = useState(null)
-  let [loading, setLoading] = useState(false)
+  let [loading, setLoading] = useState(true)
 
   useEffect(() => {
     //verificar si hay un usuario en localStorage
