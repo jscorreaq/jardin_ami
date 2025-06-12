@@ -1,0 +1,53 @@
+###peticion get - todas los docentes
+get http://localhost:8081/api/docentes
+
+###peticion get - un solo docente
+get http://localhost:8081/api/docentes/1
+
+###peticion post - crear un docente
+POST http://localhost:8081/api/docentes
+Content-Type: application/json
+
+{
+    "nombre":"Juan Perez", 
+    "grupo":"1A", 
+    "tipoMateria":"Ingles"
+}
+
+
+###peticion put - para actualizar libro
+PUT http://localhost:8081/api/docentes/18
+Content-Type: application/json
+
+{
+    "nombre":"Daniela Guzman", 
+    "grupo":"1C", 
+    "tipoMateria":"Matematicas"
+}
+
+###peticion put - para eliminar Docente
+DELETE http://localhost:8081/api/docentes/19
+Content-Type: application/json
+
+{
+    "id":19
+}
+
+###peticion post - para login
+POST http://localhost:8081/api/login
+Content-Type: application/json
+
+{
+    "email":"admin@libreria.com", 
+    "password":"admin123"
+}
+
+###peticion post - crear un usuario
+POST http://localhost:8081/api/register
+Content-Type: application/json
+
+{
+    "email":"juan@libreria.com", 
+    "password":"juan123",
+    "role":"customer"
+}

@@ -5,9 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-// import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 // import jakarta.persistence.JoinTable;
-// import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 
@@ -20,18 +21,14 @@ public class Estudiante {
     private String nombre;
     private int edad;
     private String grupo;
+    
+    // Relación muchos a uno con Docente
+    @ManyToOne // Muchos estudiantes a un docente
+    @JoinColumn(name = "docente_identificacion") // Nombre de la columna FK en la tabla 'estudiantes'
+    private Docente docente; // Referencia al docente
 
     public Estudiante() {
     }
-    
-    //  @ManyToMany
-    //  @JoinTable(
-    //              name = "estudiantes_docentes",
-    //              joinColumns = @JoinColumn(name = "estudiantes_identificacion"),
-    //              inverseJoinColumns = @JoinColumn(name = "docentes_id")
-    //      )
-    //      private Set<Docente> docentes;
-    
     
 
     public Estudiante(Long identificacion, String nombre, int edad, String grupo) {
@@ -68,11 +65,15 @@ public class Estudiante {
         this.grupo = grupo;
     }
 
-    // @OneToMany(mappedBy = "libro") // dominante de la relación
-    // @JsonManagedReference // serializar/deserializar
-    // private List<Prestamo> prestamos;
+    // Agregar getter y setter para el docente
+    public Docente getDocente() {
+        return docente;
+    }
 
-    
+    public void setDocente(Docente docente) {
+        this.docente = docente;
+    }
+  
 }
 
 

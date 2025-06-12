@@ -1,13 +1,15 @@
 package com.jardin.ami_sas.modelos;
 
-//import java.util.List;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.List;
+
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.ManyToMany;
-//import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,15 +22,14 @@ public class Docente {
     private String grupo;
     private String tipoMateria;
 
-    //relacion mucho a muchos con estudiante
-    // @ManyToMany(mappedBy = "docente") // dominante de la relación
-    // @JsonManagedReference // serializar/deserializar
-    // private List<Estudiante> estudiantes;
-    
-     // Relación de uno a varios con salon
-    // @OneToMany(mappedBy = "docente") // dominante de la relación
-    // @JsonManagedReference // serializar/deserializar
-    // private List<Salon> prestamos;
+    //relacion uno a muchos con estudiante
+    @OneToMany(mappedBy = "docente") // 'docente' es el nombre del atributo en la clase Estudiante
+    @JsonManagedReference // Para manejar la serialización JSON y evitar bucles infinitos
+    private List<Estudiante> estudiantes; // Agregar la lista de estudiantes
+
+     // Relación uno a uno con salon (lado inverso)
+    @OneToOne(mappedBy = "docente") // 'docente' es el nombre del atributo en la clase Salon
+    private Salon salon; // Referencia al salón asignado
 
     public Docente(){
 
@@ -65,7 +66,23 @@ public class Docente {
         this.tipoMateria = tipoMateria;
     }
 
+    // Agregar getter y setter para la lista de estudiantes
+    public List<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
 
+    public void setEstudiantes(List<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+    
+    // Getter y setter para el salon
+    public Salon getSalon() {
+        return salon;
+    }
+
+    public void setSalon(Salon salon) {
+        this.salon = salon;
+    }
     
 }
 
