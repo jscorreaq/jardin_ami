@@ -1,5 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomePage from './frontend/pages/HomePage'
 import LoginPage from './frontend/pages/LoginPage'
 import RegisterPage from './frontend/pages/RegisterPage'
