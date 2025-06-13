@@ -1,11 +1,11 @@
 ###peticion get - todas los docentes
-get http://localhost:8081/api/docentes
+get http://localhost:8080/api/docentes
 
 ###peticion get - un solo docente
-get http://localhost:8081/api/docentes/1
+get http://localhost:8080/api/docentes/1
 
 ###peticion post - crear un docente
-POST http://localhost:8081/api/docentes
+POST http://localhost:8080/api/docentes
 Content-Type: application/json
 
 {

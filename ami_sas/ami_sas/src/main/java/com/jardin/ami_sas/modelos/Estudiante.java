@@ -1,15 +1,8 @@
 package com.jardin.ami_sas.modelos;
 
-//import java.util.Set;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-// import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
 
 
 @Entity
@@ -25,6 +18,7 @@ public class Estudiante {
     // Relación muchos a uno con Docente
     @ManyToOne // Muchos estudiantes a un docente
     @JoinColumn(name = "docente_identificacion") // Nombre de la columna FK en la tabla 'estudiantes'
+    @JsonBackReference // Evita la recursión infinita en la serialización
     private Docente docente; // Referencia al docente
 
     public Estudiante() {

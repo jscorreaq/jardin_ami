@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.jardin.ami_sas.modelos.Docente;
 import com.jardin.ami_sas.servicios.DocenteService;
+import org.springframework.http.MediaType;
 
 @RestController
 @RequestMapping("/api/docentes")
@@ -19,7 +20,7 @@ public class DocenteController {
         return docenteService.listarTodos();
     }
 
-    @PostMapping
+     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE) // Añadimos consumes
     public Docente crearDocente(@RequestBody Docente docente) {
         return docenteService.guardar(docente);
     }

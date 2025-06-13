@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.jardin.ami_sas.repositorios") 
-@EntityScan(basePackages = "com.jardin.ami_sas.modelos") 
+//@EntityScan(basePackages = "com.jardin.ami_sas.modelos") 
 
 public class AmiSasApplication {
 
