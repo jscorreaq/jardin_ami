@@ -7,66 +7,66 @@ export default function Degress() {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <div className="bg-primary text-white p-4 rounded">
-                <h3>Degrees & Certifications</h3>
-                <hr className="border-3 border border-light"/>
+              <div className="bg-danger bg-opacity-75 text-white p-4 rounded">
+                <h3>Programas Educativos</h3>
+                <hr className="border-3 border border-light" />
                 <ul className="list-unstyled">
                   <li>
-                    <h5>Bachelor’s</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <h5>Maternal</h5>
+                    <p>Programa especializado para bebés de 6 meses a 2 años, enfocado en el desarrollo temprano.</p>
                   </li>
                   <li>
-                    <h5>Master’s</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <h5>Párvulos</h5>
+                    <p>Educación inicial para niños de 2 a 3 años, con énfasis en el desarrollo social y motor.</p>
                   </li>
                   <li>
-                    <h5>Doctoral</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <h5>Pre-jardín</h5>
+                    <p>Programa para niños de 3 a 4 años, preparándolos para su ingreso al jardín infantil.</p>
                   </li>
                   <li>
-                    <h5>Certification</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <h5>Certificaciones</h5>
+                    <p>Programas especializados en música, arte y desarrollo psicomotor.</p>
                   </li>
                   <li>
-                    <h5>Minor</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <h5>Actividades Extra</h5>
+                    <p>Clases de natación, música, arte y estimulación temprana.</p>
                   </li>
                 </ul>
               </div>
             </div>
-        <div className="col-md-8">
-          <h3>Majors, minors & graduate programs</h3>
-          <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora vero cupiditate quos eius distinctio ut, doloribus asperiores adipisci ipsum! Voluptatibus, suscipit libero eos qui nostrum quas asperiores blanditiis rem eveniet?</p>
-          <div className="row">
-            <div className="col-6">
-                <h5>💻 Computer Science</h5>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt nisi, quod quo et saepe minima earum voluptates est facere ut modi, vitae minus consequuntur velit repellendus architecto ducimus? Dolorem, culpa.</p>
-            </div>
-            <div className="col-6">
-                <h5>📈 Management Business</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam magni alias incidunt modi, illum quibusdam nesciunt autem sequi ipsam quod</p>
-            </div>
-            <div className="col-6">
-                <h5>🧬 Sciences</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem libero eveniet delectus tenetur et vero, porro labore repellat dolores </p>
-            </div>
-            <div className="col-6">
-                <h5>🏗️ Engineering</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fugiat tempore dolore aspernatur magni ex ratione, ducimus atque eos culpa</p>
-            </div>
-            <div className="col-6">
-                <h5>⚖️ Law Department</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel fuga ex dignissimos corrupti aliquid ipsum natus perspiciatis. Repellat </p>
-            </div>
-            <div className="col-6">
-                <h5>🎨 Art & Design</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora aliquid facere veniam voluptatibus sapiente ex assumenda, excepturi quas</p>
+            <div className="col-md-8">
+              <h3>Programas y Servicios Educativos</h3>
+              <p className="mb-5">En nuestra guardería ofrecemos una educación integral y personalizada, enfocada en el desarrollo físico, emocional y cognitivo de cada niño. Nuestros programas están diseñados para estimular la creatividad, la curiosidad y el amor por el aprendizaje desde los primeros años.</p>
+              <div className="row">
+                <div className="col-6">
+                  <h5>🎨 Desarrollo Artístico</h5>
+                  <p>Programa de arte y creatividad que fomenta la expresión personal y el desarrollo de habilidades motoras finas a través de diferentes técnicas artísticas.</p>
+                </div>
+                <div className="col-6">
+                  <h5>🎵 Música y Movimiento</h5>
+                  <p>Clases de música y expresión corporal que estimulan el desarrollo auditivo y la coordinación motora de los niños.</p>
+                </div>
+                <div className="col-6">
+                  <h5>🧩 Estimulación Temprana</h5>
+                  <p>Programa diseñado para potenciar el desarrollo cognitivo, social y emocional de los niños desde sus primeros meses.</p>
+                </div>
+                <div className="col-6">
+                  <h5>🌱 Educación Ambiental</h5>
+                  <p>Actividades que fomentan el amor por la naturaleza y enseñan sobre el cuidado del medio ambiente.</p>
+                </div>
+                <div className="col-6">
+                  <h5>📚 Lectura y Lenguaje</h5>
+                  <p>Programa de desarrollo del lenguaje y fomento a la lectura a través de cuentos y actividades lúdicas.</p>
+                </div>
+                <div className="col-6">
+                  <h5>🤝 Desarrollo Social</h5>
+                  <p>Actividades grupales que promueven la socialización, el respeto y la empatía entre los niños.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
     </div>
   )
 }
