@@ -15,7 +15,7 @@ public class EstudianteController {
     @Autowired
     private EstudianteService estudianteService;
 
-    //recursos para los libros
+    //recursos para los listar los estudiantes
     @GetMapping
     public List<Estudiante> listarEstudiantes() {
         return estudianteService.listarTodos();

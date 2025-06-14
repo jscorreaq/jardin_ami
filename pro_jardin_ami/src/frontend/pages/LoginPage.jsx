@@ -2,36 +2,41 @@ import {Link, useNavigate} from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer'; 
 import { useForm } from 'react-hook-form'; //manejo de formularios
-import datos from './../../assets/data.json'; // datos de prueba
+//import datos from './../../assets/data.json'; // datos de prueba
 import { useAuth } from '../../contex/AuthContext'; //contexto de autenticacion}
 import { generatePath } from 'react-router-dom';
 import { getDashboardRoutes } from '../../Components/common/getDashboardRoutes';
+import axios from 'axios'; //para hacer peticiones http
 
 export default function LoginPage() {
   let {login}= useAuth(); //hook para acceder al contexto de autenticacion
   let navigate = useNavigate(); //hook para redireccionar a otra ruta
 
-  console.log(datos.users);
+  //console.log(datos.users);
   let {register, handleSubmit} = useForm(); 
-  const onSubmit = (dataForm) => {
+  const onSubmit = async (dataForm) => {
     console.log("form use",dataForm);
-    // logica para verificar el usuario y contraseña
-    let userverify = datos.users.find((u) =>{
-      return u.email === dataForm.email && u.password === dataForm.password;
-    })
-    console.log("usuario", userverify);
-
-    //guardar el usuario en localStorage y redirigir a una ruta especifica
-    // dependiendo del rol del usuario
-    if(userverify){
-        login(userverify); //llama a la funcion login del contexto de autenticacion
-        navigate(getDashboardRoutes(userverify.rol)); //llama a la funcion getDashboardRoutes para obtener la ruta del dashboard
-      } else {
-        alert("Usuario o contraseña incorrectos");
+      try {
+        const respuesta= await axios.post("http://localhost:8080/api/login", dataForm);
+        console.log(respuesta)
+  
+          //guardar el usuario en localStorage y redirigir a una ruta especifica
+          // dependiendo del rol del usuario
+          if(respuesta.data.user) {
+                  login(respuesta.data); //llama a la funcion login del contexto de autenticacion
+                  // *** Añade este console.log para verificar el rol ***
+                  console.log("User role received:", respuesta.data.user.rol);
+    
+                  navigate(getDashboardRoutes(respuesta.data.user.rol)); //llama a la funcion getDashboardRoutes para obtener la ruta del dashboard
+                } else {
+alert("El usuario no tiene un rol asignado");
+              }
+        } catch (error) {
+          alert("Credenciales Incorrectas");
+          console.log(error.response?.data?.message);
       }
-
-  }
-  return (
+    };
+    return (
     <>
     <Header />
       <div className='bg-fondo-oscuro py-4'>
@@ -48,12 +53,15 @@ export default function LoginPage() {
                     <div className='col-lg-6'>
                       <div className='p-5'>
                         <div className='text-center'>
-                          <h1 className='h4 text-gray-900 mb-4'>Bienvenido de nuevo!</h1>
-                        </div>
-                        <form onSubmit={handleSubmit(onSubmit)} className='user'>
-                          <div className='form-group'>
-                            <input {...register('email', {required: true})}
-                              type='email' className='form-control form-control-user' 
+                            <h1 className='h4 text-gray-900 mb-4'>Bienvenido de nuevo!</h1>
+                          </div>
+                          <form onSubmit={handleSubmit(onSubmit
+  
+    )
+  }className='user'>
+                            <div className='form-group'>
+                              <input {...register('email', {required: true})}
+                                type='email' className='form-control form-control-user' 
                               id='exampleInputEmail' aria-describedby='emailHelp'
                               placeholder='Correo electronico' />
                           </div>
@@ -110,3 +118,4 @@ export default function LoginPage() {
 
   )
 }
+

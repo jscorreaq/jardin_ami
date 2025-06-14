@@ -119,7 +119,7 @@ export const linksNavegates = {
         }
     ],
 
-    "customer":[
+    "costumer":[
          {
             "label": "Reports",
             "icon": "fa-solid fa-chart-line",

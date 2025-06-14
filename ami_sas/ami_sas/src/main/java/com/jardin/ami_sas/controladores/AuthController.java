@@ -24,7 +24,7 @@ public class AuthController {
     
     @GetMapping("/")
     public String home() {
-        return "Bienvenido a la API de Librería App 📕📚. Consulta /api/books para ver los libros.";
+        return "Bienvenido a la API de Ami App 📕📚.";
     }
     
     @PostMapping("/register")
@@ -33,7 +33,7 @@ public class AuthController {
             User user = authService.register(
                 request.getEmail(), 
                 request.getPassword(), 
-                request.getRole()
+                request.getRol()
             );
             return ResponseEntity.ok(Map.of("message", "Usuario registrado correctamente"));
         } catch (RuntimeException e) {
@@ -53,7 +53,7 @@ public class AuthController {
             response.put("user", Map.of(
                 "id", user.getId(),
                 "email", user.getEmail(),
-                "role", user.getRole()
+                "rol", user.getRol()
             ));
             
             return ResponseEntity.ok(response);

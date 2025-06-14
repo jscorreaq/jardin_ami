@@ -12,8 +12,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Importar clases de auto-configuración de JPA
-import org.springframework.boot.autoconfigure.orm.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+// import org.springframework.boot.autoconfigure.orm.jpa.JpaRepositoriesAutoConfiguration; // Eliminado
+// import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration; // Eliminado
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -23,11 +23,11 @@ import static org.hamcrest.Matchers.containsString;
 
 
 @WebMvcTest(
-    controllers = AuthController.class, // Especifica el controlador a probar
-    excludeAutoConfiguration = { // Excluir auto-configuraciones de JPA
-        JpaRepositoriesAutoConfiguration.class,
-        HibernateJpaAutoConfiguration.class
-    }
+    controllers = AuthController.class // Especifica el controlador a probar
+    // excludeAutoConfiguration = { // Excluir auto-configuraciones de JPA // Eliminado
+    //     JpaRepositoriesAutoConfiguration.class, // Eliminado
+    //     HibernateJpaAutoConfiguration.class // Eliminado
+    // } // Eliminado
 )
 
 @AutoConfigureMockMvc
@@ -52,4 +52,3 @@ public class AuthControllerTest {
     // Puedes añadir más métodos @Test para probar otros endpoints (register, login)
     // utilizando mockMvc.perform(post(...)) y configurando los mocks necesarios
 }
-
